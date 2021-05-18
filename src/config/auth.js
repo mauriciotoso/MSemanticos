@@ -1,0 +1,19 @@
+module.exports = {
+    isLoggedIn(req, res, next){
+        if(req.isAuthenticated()){
+            return next();
+        }else {
+            return res.redirect("/iniciarSesion")
+        }
+    },
+
+    isNotLoggedIn(req, res, next){
+        if(!req.isAuthenticated()){
+            return next();
+        }else {
+            return res.redirect("/perfil")
+        }
+    }
+}
+
+
