@@ -9,11 +9,10 @@ validar.cifrarClave = async (clave) =>{
 }
 
 validar.compararClaves = async (clave, claveGuardada) => {
-    console.log("Desde bcryptjs clave: " + clave + " claveGuardada " + claveGuardada )
+    console.log("Desde bcryptjs clave: " + typeof clave + " claveGuardada " + typeof claveGuardada )
+
     return await bcrypt.compare(clave, claveGuardada);
 }
-
-
 
 
 module.exports = validar;

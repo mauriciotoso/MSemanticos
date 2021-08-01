@@ -12,7 +12,9 @@ const  {
 
 } = require("../controllers/students")
 
-rutaS.use(isLoggedIn)
+
+//TODO DESCOMENTAR
+//rutaS.use(isLoggedIn)
 
 
 rutaS.route("/agregar")
@@ -28,7 +30,6 @@ rutaS.route("/listado")
 
 /*rutaS.route("/eliminar/:id")
     .get(eliminarAlumnos)*/
-
 
 
 module.exports = rutaS;

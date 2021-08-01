@@ -5,14 +5,16 @@ CREATE TABLE institutos(
   PRIMARY KEY(cue)
 );
 
+
 CREATE TABLE becas(
 	id_beca INTEGER NOT NULL auto_increment,
 	posee_enfermedad BOOLEAN NOT NULL,
-    ingreso_neto_total INTEGER NOT NULL,
+    diferencia_ingreso_gastos INTEGER NOT NULL,
     estado VARCHAR(20) NOT NULL,
     tipo VARCHAR(20) NOT NULL,
     PRIMARY KEY(id_beca)
 );
+
 
 CREATE TABLE alumnos(
   apellidos VARCHAR(30) NOT NULL,

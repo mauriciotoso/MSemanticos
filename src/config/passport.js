@@ -24,7 +24,7 @@ passport.use(
         ); //[newinstituto]);
         //newinstituto.id = resultado.insertId;
 
-        req.body.clave  = await cifrarClave(clave); //!CIFRAR CLAVE
+        //req.body.clave  = await cifrarClave(clave); //!CIFRAR CLAVE
         console.log(resultado);
 
         return done(null, req.body);
@@ -46,15 +46,17 @@ passport.use( "local.signin", new LocalStrategy(
     async (req, cue, clave, done) => {
       try {
         const institutos = await pool.query("SELECT * FROM institutos WHERE cue = ?",[cue]);
-        console.log(institutos);
+        console.log("institutos: " + institutos);
 
         if (institutos.length > 0) {
-          const instituto = institutos[0];
-          const claveValida = await compararClaves(clave, instituto.clave);
-          console.log(claveValida);
+          const institutoUno = institutos[0];
+          console.log("clave: " +  clave + " institutoUno.clave: " +  institutoUno.clave );
 
-          if (claveValida) {
-            done(null, instituto);
+         /* const claveValida = await compararClaves(clave, institutoUno.clave);
+          console.log("clave valida: " + claveValida);*/
+
+          if (clave == institutoUno.clave) {
+            done(null, institutoUno);
           } else {
             done(null, false);
           }
